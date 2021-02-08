@@ -1,0 +1,79 @@
+.clock-background{
+    background: blue;
+    position: relative;
+}
+
+.clock{
+    box-sizing: border-box;
+    background: url(ios_clock.svg) no-repeat center;
+    background-color: darkgray;
+    width: 500px;
+    height: 475px;
+    rotate: 90deg;
+    border: 8px solid black;
+    border-radius: 50%;
+    margin: 0 auto;
+    transform: rotate(-90deg);
+    margin-top: 100px;
+}
+
+
+.clock:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50,50);
+    border: 12px solid rgb(68, 68, 68);
+    border-radius: 50%;
+    margin-left: -12px;
+    margin-top: -1px;
+    
+
+}
+
+.hour, .minute, .second{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.hour:after, .minute:after, .second:after{
+    content:"";
+    display: block;
+    margin: 50% 50%;
+    width: 50%;
+    transform-origin: left top;
+    animation:clock linear infinite;
+}
+
+.hour:after{
+    width: 30%;
+    outline: 8px solid black;
+    animation-duration: 86400s;
+}
+
+.minute:after{
+    width: 40%;
+    outline: 4px solid black;
+    animation-duration: 3600s;
+}
+
+.second:after{
+    width: 44%;
+    outline: 2px solid black;
+    animation-duration: 60s;
+    
+}
+
+@keyframes clock{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
